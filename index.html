@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pinchote | Mapa Turístico</title>
+    <link rel="stylesheet" href="./estilos.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="portada" id="inicio">
+    <nav class="navegacion">
+        <a href="#inicio" class="logo">PINCHOTE<span>.</span></a>
+        <div>
+            <a href="#mapa-seccion">Mapa</a>
+            <a href="#categorias">Descubrir</a>
+            <a href="#editor">Editar página</a>
+        </div>
+    </nav>
+
+    <div class="portada-contenido">
+        <p class="sobretitulo">SANTANDER · COLOMBIA</p>
+        <h1>Descubre la magia<br>de <span>Pinchote</span></h1>
+        <p class="texto-portada">
+            Un recorrido por sus veredas, sus tradiciones,
+            su historia y la riqueza de su gente.
+        </p>
+        <a href="#mapa-seccion" class="boton boton-claro">Explorar el mapa</a>
+    </div>
+</header>
+
+<main>
+
+    <section class="introduccion">
+        <p class="sobretitulo">UN TERRITORIO POR DESCUBRIR</p>
+        <h2>Tradición, naturaleza y cultura</h2>
+        <p>
+            Pinchote es un municipio santandereano lleno de historia,
+            paisajes y costumbres que hacen parte de su identidad.
+            Explora sus veredas y conoce lo que cada una tiene para ofrecer.
+        </p>
+    </section>
+
+    <section class="seccion-mapa" id="mapa-seccion">
+        <div class="encabezado-seccion">
+            <p class="sobretitulo">EXPLORA EL TERRITORIO</p>
+            <h2>Mapa turístico de Pinchote</h2>
+            <p>Selecciona una vereda en el mapa o en el listado.</p>
+        </div>
+
+        <div class="contenedor-mapa">
+            <div class="mapa-imagen">
+                <img
+                    id="imagen-mapa"
+                    src=""
+                    alt="Mapa turístico de las veredas de Pinchote"
+                >
+
+                <div id="error-mapa" class="error-mapa" hidden>
+                    No encontramos el mapa. Comprueba que esté dentro de
+                    la carpeta principal o de la carpeta imagenes.
+                </div>
+
+                <div id="marcadores-mapa"></div>
+            </div>
+
+            <aside class="panel-veredas">
+                <p class="sobretitulo">LAS 14 VEREDAS</p>
+                <h3>Elige tu destino</h3>
+                <div id="lista-veredas"></div>
+            </aside>
+        </div>
+    </section>
+
+    <section class="detalle-seccion" id="detalle">
+        <div class="detalle-encabezado">
+            <p class="sobretitulo">CONOCE CADA RINCÓN</p>
+            <h2 id="nombre-vereda">Centro</h2>
+            <p id="descripcion-vereda">
+                Selecciona una vereda para conocer más sobre ella.
+            </p>
+        </div>
+
+        <div class="categorias" id="categorias">
+            <button class="categoria activa" data-categoria="gastronomia">
+                Gastronomía
+            </button>
+            <button class="categoria" data-categoria="patrimonio">
+                Patrimonio histórico-cultural
+            </button>
+            <button class="categoria" data-categoria="emprendimientos">
+                Emprendimientos
+            </button>
+        </div>
+
+        <div id="galeria-contenedor">
+            <div id="galeria-fotos" class="galeria">
+                <p class="mensaje-vacio">Selecciona una categoría para explorar.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="editor-seccion" id="editor">
+        <div class="encabezado-seccion">
+            <p class="sobretitulo">ACTUALIZA EL CONTENIDO</p>
+            <h2>Personaliza tu guía turística</h2>
+            <p>
+                Agrega lugares, descripciones y fotografías.
+                Los cambios se guardarán en este navegador.
+            </p>
+        </div>
+
+        <div class="editor">
+            <label for="editor-vereda">Vereda</label>
+            <select id="editor-vereda"></select>
+
+            <label for="editor-categoria">Categoría</label>
+            <select id="editor-categoria">
+                <option value="gastronomia">Gastronomía</option>
+                <option value="patrimonio">Patrimonio histórico-cultural</option>
+                <option value="emprendimientos">Emprendimientos</option>
+            </select>
+
+            <label for="editor-titulo">Nombre del lugar o contenido</label>
+            <input type="text" id="editor-titulo" placeholder="Ej. Parque principal">
+
+            <label for="editor-descripcion">Descripción</label>
+            <textarea id="editor-descripcion" rows="4"
+                placeholder="Escribe una descripción..."></textarea>
+
+            <label for="editor-fotos">Fotografías</label>
+            <input type="file" id="editor-fotos" accept="image/*" multiple>
+
+            <button id="guardar-contenido" class="boton">
+                Guardar contenido
+            </button>
+
+            <button id="exportar-datos" class="boton boton-secundario">
+                Descargar copia de seguridad
+            </button>
+
+            <p id="mensaje-editor" class="mensaje-editor"></p>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <h2>PINCHOTE<span>.</span></h2>
+    <p>Un destino para conocer, disfrutar y recordar.</p>
+    <small>Guía turística de Pinchote, Santander.</small>
+</footer>
+
+<script src="./script.js"></script>
+</body>
+</html>

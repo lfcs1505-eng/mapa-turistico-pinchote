@@ -1,0 +1,510 @@
+
+:root {
+    --verde: #254b3a;
+    --verde-oscuro: #18372b;
+    --crema: #f7f2e8;
+    --terracota: #b86f4e;
+    --dorado: #c6a66b;
+    --texto: #344239;
+    --blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--crema);
+    color: var(--texto);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.portada {
+    min-height: 620px;
+    color: white;
+    background:
+        linear-gradient(90deg, rgba(20, 48, 35, .94), rgba(20, 48, 35, .45)),
+        linear-gradient(135deg, #355e43, #a27d52);
+    position: relative;
+    overflow: hidden;
+}
+
+.portada::after {
+    content: "";
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    border: 1px solid rgba(255,255,255,.18);
+    border-radius: 50%;
+    right: -100px;
+    bottom: -180px;
+    box-shadow: 0 0 0 35px rgba(255,255,255,.04),
+                0 0 0 75px rgba(255,255,255,.03);
+}
+
+.navegacion {
+    min-height: 80px;
+    padding: 20px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+    border-bottom: 1px solid rgba(255,255,255,.15);
+}
+
+.logo, footer h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: white;
+    text-decoration: none;
+}
+
+.logo span, footer span {
+    color: var(--dorado);
+}
+
+.navegacion div {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+.navegacion div a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.navegacion div a:hover {
+    color: var(--dorado);
+}
+
+.portada-contenido {
+    padding: 115px 10% 130px;
+    max-width: 850px;
+    position: relative;
+    z-index: 1;
+}
+
+.sobretitulo {
+    color: var(--terracota);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+}
+
+.portada .sobretitulo {
+    color: #e4c58d;
+}
+
+.portada h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(55px, 8vw, 90px);
+    line-height: .98;
+    margin-bottom: 25px;
+}
+
+.portada h1 span {
+    color: #e1bd7d;
+    font-style: italic;
+}
+
+.texto-portada {
+    max-width: 470px;
+    line-height: 1.9;
+    margin-bottom: 30px;
+    color: #f0eee6;
+}
+
+.boton {
+    border: none;
+    border-radius: 5px;
+    padding: 15px 24px;
+    background: var(--verde);
+    color: white;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.boton:hover {
+    background: var(--terracota);
+    transform: translateY(-3px);
+}
+
+.boton-claro {
+    background: var(--dorado);
+    color: var(--verde-oscuro);
+}
+
+.boton-secundario {
+    background: var(--terracota);
+}
+
+.introduccion {
+    max-width: 850px;
+    margin: auto;
+    padding: 100px 25px;
+    text-align: center;
+}
+
+h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--verde);
+}
+
+.introduccion h2,
+.encabezado-seccion h2,
+.detalle-encabezado h2 {
+    font-size: clamp(34px, 5vw, 48px);
+    margin-bottom: 18px;
+}
+
+.introduccion > p:last-child,
+.encabezado-seccion > p:last-child {
+    line-height: 1.9;
+    max-width: 700px;
+    margin: auto;
+    font-size: 14px;
+}
+
+.seccion-mapa {
+    padding: 85px 7%;
+    background: #eae5d9;
+}
+
+.encabezado-seccion {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.contenedor-mapa {
+    display: grid;
+    grid-template-columns: minmax(0, 1.7fr) minmax(260px, .8fr);
+    gap: 25px;
+    max-width: 1250px;
+    margin: auto;
+    align-items: start;
+}
+
+.mapa-imagen {
+    position: relative;
+    background: #ded8c9;
+    border: 10px solid white;
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 300px;
+    box-shadow: 0 12px 35px rgba(30,50,35,.12);
+}
+
+.mapa-imagen img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.error-mapa {
+    padding: 35px;
+    color: #9b3c2e;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#marcadores-mapa {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.marcador {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+    background: var(--terracota);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 11px;
+    font-weight: 700;
+    cursor: pointer;
+    pointer-events: auto;
+    box-shadow: 0 2px 8px #3338;
+    transition: .2s;
+}
+
+.marcador:hover,
+.marcador.activo {
+    background: var(--verde);
+    transform: translate(-50%, -50%) scale(1.35);
+}
+
+.panel-veredas {
+    background: white;
+    border-radius: 12px;
+    padding: 28px 22px;
+    box-shadow: 0 12px 35px rgba(30,50,35,.08);
+}
+
+.panel-veredas h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+#lista-veredas {
+    display: grid;
+    gap: 7px;
+}
+
+.vereda-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    text-align: left;
+    border: 1px solid #e9e5db;
+    background: #fff;
+    padding: 11px;
+    border-radius: 6px;
+    color: var(--texto);
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 12px;
+    transition: .2s;
+}
+
+.vereda-item:hover,
+.vereda-item.activo {
+    background: var(--verde);
+    color: white;
+    border-color: var(--verde);
+}
+
+.numero-vereda {
+    display: inline-grid;
+    place-items: center;
+    min-width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #eee8dc;
+    color: var(--verde);
+    font-weight: 700;
+}
+
+.detalle-seccion {
+    padding: 100px 7%;
+    text-align: center;
+}
+
+.detalle-encabezado {
+    max-width: 750px;
+    margin: auto auto 35px;
+}
+
+.detalle-encabezado > p:last-child {
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.categorias {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+
+.categoria {
+    padding: 13px 20px;
+    border: 1px solid var(--verde);
+    border-radius: 30px;
+    color: var(--verde);
+    background: transparent;
+    font-family: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.categoria:hover,
+.categoria.activa {
+    background: var(--verde);
+    color: white;
+}
+
+.galeria {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 22px;
+    text-align: left;
+}
+
+.tarjeta {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(30,50,35,.08);
+}
+
+.tarjeta img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    display: block;
+}
+
+.tarjeta-contenido {
+    padding: 22px;
+}
+
+.tarjeta h3 {
+    font-size: 25px;
+    margin-bottom: 10px;
+}
+
+.tarjeta p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.eliminar-contenido {
+    margin-top: 15px;
+    border: none;
+    background: #f4e8e3;
+    color: #963e30;
+    padding: 9px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.mensaje-vacio {
+    grid-column: 1 / -1;
+    text-align: center;
+    background: white;
+    padding: 35px;
+    border-radius: 10px;
+    color: #6c766e;
+    line-height: 1.8;
+}
+
+.editor-seccion {
+    padding: 90px 7%;
+    background: #eae5d9;
+}
+
+.editor {
+    max-width: 700px;
+    margin: auto;
+    padding: 35px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(30,50,35,.08);
+    display: grid;
+    gap: 12px;
+}
+
+.editor label {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--verde);
+    margin-top: 10px;
+}
+
+.editor input,
+.editor select,
+.editor textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #dcded6;
+    border-radius: 5px;
+    font-family: inherit;
+    font-size: 13px;
+    background: #fffefa;
+}
+
+.editor textarea {
+    resize: vertical;
+}
+
+.mensaje-editor {
+    color: var(--verde);
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+footer {
+    padding: 55px 20px;
+    background: var(--verde-oscuro);
+    color: white;
+    text-align: center;
+}
+
+footer h2 {
+    margin-bottom: 12px;
+}
+
+footer p {
+    font-size: 13px;
+    margin-bottom: 15px;
+}
+
+footer small {
+    color: #d2cbbd;
+}
+
+@media (max-width: 850px) {
+    .contenedor-mapa {
+        grid-template-columns: 1fr;
+    }
+
+    .navegacion {
+        flex-direction: column;
+    }
+
+    .navegacion div {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 550px) {
+    .portada-contenido {
+        padding: 90px 8%;
+    }
+
+    .seccion-mapa,
+    .detalle-seccion,
+    .editor-seccion {
+        padding: 65px 5%;
+    }
+
+    .editor {
+        padding: 22px;
+    }
+
+    .categorias {
+        flex-direction: column;
+    }
+
+    .categoria {
+        width: 100%;
+    }
+}
